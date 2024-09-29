@@ -42,7 +42,8 @@ function App() {
 
       // Check if the response status is 200 and display success message
       if (response.status === 200) {
-        setMessage(`✅ Success! File uploaded: ${response.data.fileUrl}`);
+        setMessage(`✅ Success! File uploaded`);
+        console.log( response.data.fileUrl);
       } else {
         setMessage('❌ Failed to upload file');
       }
@@ -59,13 +60,22 @@ function App() {
       
       <Menu />
       <h1 className="title">Submit Your Assignment</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="file" accept="application/pdf" onChange={handleFileChange} className="file-input" />
-        <button type="submit" disabled={loading} className="submit-button">
-          {loading ? <div className="spinner"></div> : 'Upload'}
-        </button>
-      </form>
+      <form onSubmit={handleSubmit} className="upload-form">
+      <label htmlFor="file-upload" className="custom-file-input">
+        {file ? file.name : "Choose PDF"}
+      </label>
+      <input 
+        id="file-upload" 
+        type="file" 
+        accept="application/pdf" 
+        onChange={handleFileChange} 
+        className="file-input-hidden" 
+      />
+      <button type="submit" disabled={loading || !file} className="submit-button">
+        {loading ? <div className="spinner"></div> : 'Upload'}
+      </button>
       {message && <p className="message">{message}</p>}
+    </form>
 <Rubric /> {/* Add the Rubric component to the page */}
 
 </div>

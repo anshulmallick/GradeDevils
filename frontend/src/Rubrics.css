@@ -1,0 +1,16 @@
+/* Rubrics specific styling with Google Font */
+.rubrics-container {
+    font-family: 'Poppins', sans-serif;
+    color: #2C3E50; /* Dark Slate Blue */
+  }
+  
+  /* Styling for rubric link */
+  .rubric-link {
+    color: #2980B9; /* Blue */
+    text-decoration: none;
+  }
+  
+  .rubric-link:hover {
+    text-decoration: underline;
+  }
+  

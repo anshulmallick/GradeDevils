@@ -1,3 +1,11 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Apply Google Font to the whole app */
+* {
+  font-family: 'Poppins', sans-serif;  /* Apply font to everything */
+}
+
 /* Basic styling for the overall app container */
 .App {
   text-align: center;
@@ -6,41 +14,66 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f0f4f8;
+  background-color: #F7F9FB; /* Light Grayish Blue */
   padding: 20px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
 }
 
 /* Title styling */
 .title {
   font-size: 2.5rem;
-  color: #333;
+  color: #2C3E50; /* Dark Slate Blue */
   margin-bottom: 1.5rem;
   font-weight: bold;
 }
 
-/* Styling for the file input field */
-.file-input {
-  margin: 1rem 0;
-  padding: 0.5rem;
+/* Styling for the upload form */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Custom styled file input */
+.custom-file-input {
+  background-color: #3498db;
+  color: white;
+  padding: 0.8rem 2rem;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 1.1rem;
-  color: #333;
   cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.custom-file-input:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Hide the default file input */
+.file-input-hidden {
+  display: none;
 }
 
 /* Styling for the submit button */
 .submit-button {
   background-color: #4CAF50;
   color: white;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
 }
 
 .submit-button:hover {
@@ -52,14 +85,14 @@
   cursor: not-allowed;
 }
 
-/* Styling for the success/error message */
+/* Message styling for success/error */
 .message {
   margin-top: 1.5rem;
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.1rem;
+  color: #2C3E50;
 }
 
-/* Loading spinner styles */
+/* Loading spinner styling */
 .spinner {
   border: 4px solid #f3f3f3;
   border-top: 4px solid #3498db;
@@ -69,19 +102,8 @@
   animation: spin 1s linear infinite;
 }
 
-/* Keyframes for the loading spinner */
+/* Keyframes for loading spinner */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-  .title {
-    font-size: 2rem;
-  }
-  .submit-button {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-  }
 }

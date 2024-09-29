@@ -1,6 +1,10 @@
-/* Burger Icon Styling */
-.burger-icon {
-    position: fixed; /* Fixed positioning to stay on screen */
+/* Menu specific styling with Google Font */
+.menu-container {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .burger-icon {
+    position: fixed;
     top: 20px;
     left: 20px;
     width: 30px;
@@ -9,7 +13,7 @@
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 1000; /* High z-index to stay above other content */
+    z-index: 1000;
   }
   
   .line {
@@ -20,7 +24,7 @@
   }
   
   .open {
-    background-color: #fff; /* Change color when open */
+    background-color: #fff;
   }
   
   .line:nth-child(2) {
@@ -39,9 +43,8 @@
     transform: rotate(-45deg) translate(6px, -6px);
   }
   
-  /* Sidebar styling */
   .sidebar {
-    position: fixed; /* Fixed to prevent content shifting */
+    position: fixed;
     top: 0;
     left: -250px;
     height: 100%;
@@ -49,23 +52,18 @@
     background-color: #333;
     color: white;
     padding-top: 60px;
-    transition: left 0.3s ease; /* Smooth sliding transition */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Ensure sidebar is above content */
+    transition: left 0.3s ease;
+    z-index: 1000;
   }
   
   .sidebar.open {
-    left: 0; /* Slide the sidebar in */
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+    left: 0;
   }
   
   .sidebar-item {
     padding: 15px 20px;
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
   }

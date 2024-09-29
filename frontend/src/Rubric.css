@@ -1,0 +1,77 @@
+/* Rubric component specific styling with consistent UI */
+
+/* Container for the rubric */
+.rubric-container {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #2C3E50; /* Dark Slate Blue */
+  padding: 1rem;
+}
+
+
+/* Custom styling for the "View Rubric" button */
+.rubric-button {
+  background-color: #4CAF50; /* Same green button as the rest of the app */
+  color: #3498db;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.rubric-button:hover {
+  background-color: #45a049;
+}
+
+.rubric-button:disabled {
+  background-color: #3498db;
+  cursor: not-allowed;
+}
+
+/* Styling the table container */
+.rubric-table-container {
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  border-radius: 10px;
+}
+
+/* Styling for table headers */
+.rubric-table-head {
+  background-color: #2C3E50; /* Dark Slate Blue */
+  color: white;
+}
+
+/* Styling for table rows */
+.rubric-table-row {
+  font-size: 1rem;
+}
+
+.rubric-table-row:nth-child(even) {
+  background-color: #f9f9f9; /* Light background for alternating rows */
+}
+
+/* Styling for table cells */
+.rubric-table-row td, 
+.rubric-table-head th {
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #2C3E50;
+}
+
+/* Make the table responsive for smaller screens */
+@media (max-width: 600px) {
+  .rubric-button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .rubric-table-row td,
+  .rubric-table-head th {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

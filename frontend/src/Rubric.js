@@ -9,6 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import './Rubric.css'; // Import custom CSS for styling
 
 function Rubric() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -25,9 +26,9 @@ function Rubric() {
   };
 
   const table = () => (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+    <TableContainer component={Paper} className="rubric-table-container">
+      <Table sx={{ minWidth: 650 }} aria-label="rubric table">
+        <TableHead className="rubric-table-head">
           <TableRow>
             <TableCell>Criterion</TableCell>
             <TableCell align="right">Description</TableCell>
@@ -36,9 +37,7 @@ function Rubric() {
         </TableHead>
         <TableBody>
           {/* Example row, replace with data from backend */}
-          <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
+          <TableRow>
             <TableCell component="th" scope="row">
               Example Criterion
             </TableCell>
@@ -51,8 +50,10 @@ function Rubric() {
   );
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)}>Rubric</Button>
+    <div className="rubric-container">
+      <Button className="rubric-button" onClick={toggleDrawer(true)}>
+        View Rubric
+      </Button>
       <SwipeableDrawer
         anchor='bottom'
         open={isOpen}
@@ -64,5 +65,6 @@ function Rubric() {
     </div>
   );
 }
+
 
 export default Rubric;

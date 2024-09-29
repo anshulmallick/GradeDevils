@@ -1,102 +1,114 @@
-/* Menu specific styling with Google Font */
+/* Ensure the menu uses the same font and spacing as the rest of the app */
 .menu-container {
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .burger-icon {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1000;
-  }
-  
-  .line {
-    width: 100%;
-    height: 4px;
-    background-color: #333;
-    transition: all 0.3s ease;
-  }
-  
-  .open {
-    background-color: #fff;
-  }
-  
-  .line:nth-child(2) {
-    width: 80%;
-  }
-  
-  .open:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-  
-  .open:nth-child(2) {
-    opacity: 1;
-  }
-  
-  .open:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100%;
-    width: 250px;
-    background-color: #333;
-    color: white;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-    z-index: 1000;
-  }
-  
-  .sidebar.open {
-    left: 0;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Burger Icon Styling */
+.burger-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.line {
+  width: 100%;
+  height: 4px;
+  background-color: #3498db; /* Blue to match color palette */
+  transition: all 0.3s ease;
+}
+
+.open .line {
+  background-color: #fff; /* White when the menu is open */
+}
+
+.line:nth-child(2) {
+  width: 80%;
+}
+
+.open:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.open:nth-child(2) {
+  opacity: 1;
+}
+
+.open:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 250px;
+  background-color: #2C3E50; /* Dark Slate Blue from color palette */
+  color: white;
+  padding-top: 60px;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  z-index: 1000;
+}
+
+.sidebar.open {
+  left: 0; /* Show the sidebar when open */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Sidebar Item Styling */
+.sidebar-item {
+  padding: 15px 20px;
+  font-size: 1.1rem; /* Adjusted for consistency with app */
+  color: #fff; /* White text */
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: #4CAF50; /* Green hover effect for consistency */
+}
+
+/* Overlay for closing the sidebar */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900; /* Place the overlay behind the sidebar */
+}
+
+/* App content transition when sidebar opens */
+.App {
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
   .sidebar-item {
-    padding: 15px 20px;
-    font-size: 1.2rem;
-    font-family: 'Poppins', sans-serif;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+    font-size: 1rem;
+    padding: 12px 15px;
   }
-  
-  .sidebar-item:hover {
-    background-color: #575757;
+
+  .burger-icon {
+    top: 15px;
+    left: 15px;
   }
-  
-  /* Overlay to close the sidebar when clicked outside */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 900; /* Place the overlay just behind the sidebar */
-  }
-  
-  /* App content should not shift when sidebar is opened */
-  .App {
-    transition: all 0.3s ease; /* Smooth transition */
-    z-index: 1; /* Ensure App content is below the sidebar */
-  }
-  
-  /* Responsive design */
-  @media (max-width: 600px) {
-    .title {
-      font-size: 2rem;
-    }
-    .submit-button {
-      font-size: 1rem;
-      padding: 0.6rem 1.2rem;
-    }
-  }
-  
+}

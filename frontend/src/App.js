@@ -4,6 +4,9 @@ import Rubric from './Rubric'; // Import the Rubric component
 
 import './App.css'; // We'll add custom styles here
 
+import Menu from './Menu';
+
+
 function App() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
@@ -54,6 +57,7 @@ function App() {
   return (
     <div className="App">
       
+      <Menu />
       <h1 className="title">Submit Your Assignment</h1>
       <form onSubmit={handleSubmit}>
         <input type="file" accept="application/pdf" onChange={handleFileChange} className="file-input" />

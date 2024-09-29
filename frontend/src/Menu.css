@@ -1,0 +1,104 @@
+/* Burger Icon Styling */
+.burger-icon {
+    position: fixed; /* Fixed positioning to stay on screen */
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000; /* High z-index to stay above other content */
+  }
+  
+  .line {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .open {
+    background-color: #fff; /* Change color when open */
+  }
+  
+  .line:nth-child(2) {
+    width: 80%;
+  }
+  
+  .open:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .open:nth-child(2) {
+    opacity: 1;
+  }
+  
+  .open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    position: fixed; /* Fixed to prevent content shifting */
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding-top: 60px;
+    transition: left 0.3s ease; /* Smooth sliding transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure sidebar is above content */
+  }
+  
+  .sidebar.open {
+    left: 0; /* Slide the sidebar in */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-item {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #575757;
+  }
+  
+  /* Overlay to close the sidebar when clicked outside */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900; /* Place the overlay just behind the sidebar */
+  }
+  
+  /* App content should not shift when sidebar is opened */
+  .App {
+    transition: all 0.3s ease; /* Smooth transition */
+    z-index: 1; /* Ensure App content is below the sidebar */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .title {
+      font-size: 2rem;
+    }
+    .submit-button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+  

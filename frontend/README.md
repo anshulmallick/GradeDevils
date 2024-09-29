@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+Here’s a basic `README.md` file that outlines how to set up and run both the backend and frontend, including installing dependencies and running the project.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# GradeDevils - Automated Assignment Grading
 
-In the project directory, you can run:
+This project automates the process of submitting and grading assignments using a React frontend and a Node.js (Express) backend. The backend uses AWS services for file storage and grading automation.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before running this project, ensure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/) (v12 or higher)
+- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
+- [AWS CLI](https://aws.amazon.com/cli/) (if working with AWS services)
+- Set up your `.env` files for both backend and frontend with your AWS credentials and other necessary configurations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the repository
 
-### `npm run build`
+```bash
+git clone https://github.com/yourusername/GradeDevils.git
+cd GradeDevils
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Navigate to the backend folder
 
-### `npm run eject`
+```bash
+cd backend
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Install dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Create a `.env` file in the `backend` directory
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Make sure you have your AWS credentials and other environment variables ready. Create a `.env` file in the `backend` folder and populate it with your AWS credentials:
 
-## Learn More
+```bash
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
+AWS_REGION=us-east-1
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Run the backend server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+node app.js
+```
 
-### Code Splitting
+This will start the backend server on `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. Navigate to the frontend folder
 
-### Making a Progressive Web App
+```bash
+cd frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2. Install dependencies
 
-### Advanced Configuration
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. Create a `.env` file in the `frontend` directory
 
-### Deployment
+Make sure you set up environment variables for your AWS services in the `frontend` as well. Create a `.env` file in the `frontend` folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+REACT_APP_AWS_ACCESS_KEY_ID=your_access_key_id
+REACT_APP_AWS_SECRET_ACCESS_KEY=your_secret_access_key
+REACT_APP_AWS_REGION=us-east-1
+```
 
-### `npm run build` fails to minify
+### 4. Run the frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm start
+```
+
+This will start the frontend development server, and the React app will be available at `http://localhost:3000`.
+
+---
+
+## Running the Project
+
+1. Make sure both the backend and frontend servers are running:
+   - Backend: `http://localhost:3000`
+   - Frontend: `http://localhost:3001`
+
+2. Access the app in your browser by navigating to `http://localhost:3001`.
+
+---
+
+## AWS Configuration
+
+To properly run the file uploads and assignment grading processes, ensure that your AWS credentials and permissions are configured correctly:
+- Set up an S3 bucket for storing the assignment PDFs.
+- Make sure your Lambda functions, SNS, and other AWS services are correctly linked in your backend.
+
+---
+
+## Technologies Used
+
+- **Frontend**: React, Axios, Material-UI
+- **Backend**: Node.js, Express, AWS SDK, Multer (for file uploads)
+- **AWS Services**: S3 (for file storage), Lambda (for grading automation), DynamoDB (for storing feedback/grades)
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+This `README.md` covers basic setup instructions. You can adjust it based on any additional requirements or configurations for your project.
+

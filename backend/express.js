@@ -3,9 +3,11 @@ const AWS = require('aws-sdk');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-
+const cors = require('cors');
 // Create an Express app
 const app = express();
+
+app.use(cors()); 
 app.use(express.json()); // to support JSON-encoded bodies
 
 // Define the correct path for the uploads folder inside the backend directory

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App.css'; // We'll add custom styles here
 
 function App() {
   const [file, setFile] = useState(null);
@@ -10,6 +10,7 @@ function App() {
   // Handle file selection
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+    setMessage(''); // Clear previous messages when a new file is selected
   };
 
   // Handle form submission to upload the file
@@ -26,38 +27,38 @@ function App() {
 
     try {
       setLoading(true);
+      setMessage(''); // Clear previous messages
 
       const response = await axios.post('http://localhost:3000/upload-pdf', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response.status+ " YESSSSSSS ");
 
       // Check if the response status is 200 and display success message
       if (response.status === 200) {
-        setMessage(`Success! File uploaded: ${response.data.fileUrl}`);
+        setMessage(`✅ Success! File uploaded: ${response.data.fileUrl}`);
       } else {
-        setMessage('Failed to upload file');
+        setMessage('❌ Failed to upload file');
       }
     } catch (error) {
       console.error('Error uploading the file:', error);
-      setMessage('Failed to upload file');
+      setMessage('❌ Failed to upload file');
     } finally {
-      setLoading(false);
+      setLoading(false); // Remove loading spinner
     }
   };
 
   return (
     <div className="App">
-      <h1>Upload Assignment (PDF)</h1>
+      <h1 className="title">Submit Your Assignment</h1>
       <form onSubmit={handleSubmit}>
-        <input type="file" accept="application/pdf" onChange={handleFileChange} />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Uploading...' : 'Upload'}
+        <input type="file" accept="application/pdf" onChange={handleFileChange} className="file-input" />
+        <button type="submit" disabled={loading} className="submit-button">
+          {loading ? <div className="spinner"></div> : 'Upload'}
         </button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }

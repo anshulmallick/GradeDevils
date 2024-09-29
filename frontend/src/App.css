@@ -1,38 +1,87 @@
+/* Basic styling for the overall app container */
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Title styling */
+.title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+/* Styling for the file input field */
+.file-input {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1.1rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Styling for the submit button */
+.submit-button {
+  background-color: #4CAF50;
   color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.submit-button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.submit-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Styling for the success/error message */
+.message {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Loading spinner styles */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for the loading spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
   }
 }

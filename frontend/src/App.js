@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Rubric from './Rubric'; // Import the Rubric component
+
 import './App.css'; // We'll add custom styles here
 
 function App() {
@@ -51,6 +53,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <h1 className="title">Submit Your Assignment</h1>
       <form onSubmit={handleSubmit}>
         <input type="file" accept="application/pdf" onChange={handleFileChange} className="file-input" />
@@ -59,8 +62,12 @@ function App() {
         </button>
       </form>
       {message && <p className="message">{message}</p>}
-    </div>
+<Rubric /> {/* Add the Rubric component to the page */}
+
+</div>
   );
 }
 
 export default App;
+
+

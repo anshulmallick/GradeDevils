@@ -27,6 +27,37 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3();
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+
+
+app.get('/api/results/:assignmentId', async (req, res) => {
+    const assignmentId = req.params.assignmentId;
+    
+    const params = {
+        TableName: 'AssignmentResults',
+        Key: {
+            AssignmentID: assignmentId
+        }
+    };
+
+    try {
+        const data = await dynamodb.get(params).promise();
+        res.status(200).json(data.Item);
+    } catch (err) {
+        console.error("Error fetching data from DynamoDB:", err);
+        res.status(500).json({ error: 'Could not retrieve assignment results' });
+    }
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
+
+
+
+
+
 
 // Route to handle PDF file upload and upload to S3
 app.post('/upload-pdf', upload.single('file'), async (req, res) => {
@@ -60,6 +91,8 @@ app.post('/upload-pdf', upload.single('file'), async (req, res) => {
     res.status(200).send({
       message: 'File uploaded successfully to S3',
       fileUrl: uploadResult.Location,
+      fileKey: uploadResult.Key,
+      fileBucket: uploadResult.Bucket
     });
   } catch (error) {
     console.error('Error uploading to S3:', error); // Log error

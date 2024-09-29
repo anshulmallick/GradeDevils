@@ -1,13 +1,26 @@
-/* Import Google Fonts */
+/* Google Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Apply Google Font to the whole app */
+/* Apply font to everything */
 * {
-  font-family: 'Poppins', sans-serif;  /* Apply font to everything */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Animation keyframes for the title */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); /* Move up */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
 }
 
 /* Basic styling for the overall app container */
 .App {
+  position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -16,15 +29,34 @@
   min-height: 100vh;
   background-color: #F7F9FB; /* Light Grayish Blue */
   padding: 20px;
-  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-family: 'Poppins', sans-serif;
+  z-index: 1;
 }
 
-/* Title styling */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/background.jpeg'); /* Use your background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.9; /* Control opacity */
+  z-index: -1;
+}
+
+/* Title styling with animation */
 .title {
   font-size: 2.5rem;
   color: #2C3E50; /* Dark Slate Blue */
   margin-bottom: 1.5rem;
   font-weight: bold;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-in-out forwards; /* Apply animation */
 }
 
 /* Styling for the upload form */
@@ -32,7 +64,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for the form background */
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -101,6 +133,26 @@
   height: 20px;
   animation: spin 1s linear infinite;
 }
+/* Styling for PDF display container */
+.pdf-display-container {
+  margin-top: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 10 auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* PDF title styling */
+.pdf-title {
+  font-size: 1.5rem;
+  color: #2C3E50; /* Dark Slate Blue */
+  margin-bottom: 1rem;
+}
+
+
 
 /* Keyframes for loading spinner */
 @keyframes spin {

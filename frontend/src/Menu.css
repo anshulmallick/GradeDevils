@@ -21,7 +21,7 @@
 .line {
   width: 100%;
   height: 4px;
-  background-color: #3498db; /* Blue to match color palette */
+  background-color: #fff; /* Blue to match color palette */
   transition: all 0.3s ease;
 }
 
@@ -52,7 +52,7 @@
   left: -250px;
   height: 100%;
   width: 250px;
-  background-color: #2C3E50; /* Dark Slate Blue from color palette */
+  background-color: #862041; /* Dark Slate Blue from color palette */
   color: white;
   padding-top: 60px;
   transition: left 0.3s ease;
@@ -80,7 +80,7 @@
 }
 
 .sidebar-item:hover {
-  background-color: #4CAF50; /* Green hover effect for consistency */
+  background-color: #69112d; /* Green hover effect for consistency */
 }
 
 /* Overlay for closing the sidebar */

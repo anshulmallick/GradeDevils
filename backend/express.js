@@ -30,32 +30,19 @@ const s3 = new AWS.S3();
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 
-app.get('/api/results/:assignmentId', async (req, res) => {
-    const assignmentId = req.params.assignmentId;
-    
-    const params = {
-        TableName: 'AssignmentResults',
-        Key: {
-            AssignmentID: assignmentId
-        }
-    };
+app.get('/items', async (req, res) => {
+  const params = {
+    TableName: 'test-dynamo'
+  };
 
-    try {
-        const data = await dynamodb.get(params).promise();
-        res.status(200).json(data.Item);
-    } catch (err) {
-        console.error("Error fetching data from DynamoDB:", err);
-        res.status(500).json({ error: 'Could not retrieve assignment results' });
-    }
+  try {
+    const data = await dynamodb.scan(params).promise();
+    res.json(data.Items);
+  } catch (err) {
+    console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
+    res.status(500).send(err);
+  }
 });
-
-// Start the server
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
-});
-
-
-
 
 
 
@@ -72,7 +59,7 @@ app.post('/upload-pdf', upload.single('file'), async (req, res) => {
 
   // Set S3 parameters
   const s3Params = {
-    Bucket: 'assignment-upload', // Replace with your S3 bucket name
+    Bucket: 'my-grader-data-007', // Replace with your S3 bucket name
     Key: `${file.filename}-${file.originalname}`, // Generate a unique key for the file
     Body: fileStream,
     ContentType: file.mimetype, // The content type of the file (e.g., 'application/pdf')

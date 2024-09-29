@@ -99,7 +99,7 @@
 
 /* Custom styled file input */
 .custom-file-input {
-  background-color: #FFC72C;
+  background-color: #862041;
   color: white;
   padding: 0.8rem 2rem;
   border-radius: 5px;
@@ -111,7 +111,7 @@
 }
 
 .custom-file-input:hover {
-  background-color: #e5b42e; /* Darker blue on hover */
+  background-color: #721130; /* Darker blue on hover */
 }
 
 /* Hide the default file input */
@@ -121,7 +121,7 @@
 
 /* Styling for the submit button */
 .submit-button {
-  background-color: #4CAF50;
+  background-color: #237426;
   color: white;
   padding: 0.8rem 2rem;
   font-size: 1rem;
@@ -134,7 +134,7 @@
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #1a631d;
 }
 
 .submit-button:disabled {
@@ -180,17 +180,6 @@
   margin-bottom: 1rem;
 }
 
-/* Styling for the Rubric */
-.rubric-container {
-  position: relative;
-  margin-top: 2rem;
-  max-width: 800px;
-  width: 100%;
-  padding: 1rem;
-  /* background-color: #fff; */
-  border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
 
 /* Keyframes for loading spinner */
 @keyframes spin {

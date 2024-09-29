@@ -99,10 +99,18 @@ function App() {
 
   return (
     <div className="App">
+      {/* Add header here */}
+      <header className="app-header">
+        <h1>Welcome to GradeDevils</h1>
+        <p>Generate the grades by submitting your assignment!</p>
+      </header>
+
+
       <Menu />
       
       <form onSubmit={handleSubmit} className="upload-form">
         <h1 className="title">Submit Your Assignment</h1>
+        <p>Explain about Darwins theory of evolution.</p>
         <label htmlFor="file-upload" className="custom-file-input">
           {file ? file.name : "Choose PDF"}
         </label>

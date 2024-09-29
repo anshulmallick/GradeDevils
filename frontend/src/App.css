@@ -18,6 +18,29 @@
   }
 }
 
+/* Add the header styling */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #862041; /* Maroon background */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+
 /* Basic styling for the overall app container */
 .App {
   position: relative;
@@ -25,9 +48,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  padding-top: 180px; /* Adjust this value to account for header height */
   background-color: #F7F9FB; /* Light Grayish Blue */
+  min-height: 100vh;
   padding: 20px;
   font-family: 'Poppins', sans-serif;
   z-index: 1;
@@ -61,6 +84,7 @@
 
 /* Styling for the upload form */
 .upload-form {
+  position: relative; /* Relative to the page */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,12 +93,13 @@
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  margin: 0 auto;
+  margin: 150px 0px auto;
+  z-index: 2; /* Ensure it stays above other content */
 }
 
 /* Custom styled file input */
 .custom-file-input {
-  background-color: #3498db;
+  background-color: #FFC72C;
   color: white;
   padding: 0.8rem 2rem;
   border-radius: 5px;
@@ -86,7 +111,7 @@
 }
 
 .custom-file-input:hover {
-  background-color: #2980b9; /* Darker blue on hover */
+  background-color: #e5b42e; /* Darker blue on hover */
 }
 
 /* Hide the default file input */
@@ -127,22 +152,25 @@
 /* Loading spinner styling */
 .spinner {
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
+  border-top: 4px solid #FFC72C;
   border-radius: 50%;
   width: 20px;
   height: 20px;
+  margin-left: 50px;
   animation: spin 1s linear infinite;
 }
+
 /* Styling for PDF display container */
 .pdf-display-container {
+  position: relative; /* Relative positioning */
   margin-top: 2rem;
   max-width: 800px;
   width: 100%;
-  margin: 10 auto;
   padding: 1rem;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 /* PDF title styling */
@@ -152,7 +180,17 @@
   margin-bottom: 1rem;
 }
 
-
+/* Styling for the Rubric */
+.rubric-container {
+  position: relative;
+  margin-top: 2rem;
+  max-width: 800px;
+  width: 100%;
+  padding: 1rem;
+  /* background-color: #fff; */
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
 
 /* Keyframes for loading spinner */
 @keyframes spin {

@@ -11,8 +11,8 @@
 
 /* Custom styling for the "View Rubric" button */
 .rubric-button {
-  background-color: #4CAF50; /* Same green button as the rest of the app */
-  color: #3498db;
+  background-color: #FFC72C; /* Same green button as the rest of the app */
+  color: #ffff;
   padding: 0.8rem 1.5rem;
   font-size: 1.1rem;
   border: none;
@@ -23,11 +23,11 @@
 }
 
 .rubric-button:hover {
-  background-color: #45a049;
+  background-color: #e5b42e;
 }
 
 .rubric-button:disabled {
-  background-color: #3498db;
+  background-color: #FFC72C;
   cursor: not-allowed;
 }
 
